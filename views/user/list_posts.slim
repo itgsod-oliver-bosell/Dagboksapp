@@ -1,0 +1,9 @@
+a href="/post"
+  button Submit a new post
+form action="/search" method="post"
+  input type="search" name="searchtitel" placeholder="Search title"
+  button type="submit" Search
+-for post in @posts
+  a href="/user/#{post.user_id.to_i}/#{post.id.to_i}"
+    h3 = "#{post.titel}"
+  h4 = "#{post.date.strftime("%e of %B %Y")}"

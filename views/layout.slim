@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title Diary
+    link rel="stylesheet" type="text/css" href="/dagbok.css"
+    meta charset="utf-8"
+  body
+    nav#top
+      #login
+        - if @user
+          h1= "Hello #{@user.name.capitalize}!"
+          form action="/logout" method="post"
+            button#logout type="submit" Log out (#{@user.name})
+        - else
+          h1 = "Welcome to Olijannikever's Diary"
+          form action="/login" method="post"
+            input type="text" name="name" placeholder="Name"
+            input type="password" name="password" placeholder="Password"
+            button type="submit" Log in
+          form action="/register" method="get"
+            button#register type="submit" Register
+    == yield
